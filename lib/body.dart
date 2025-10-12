@@ -9,9 +9,12 @@ class Body extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
         child: Container(
-          height: 100,
-          width: 100,
-            color: Colors.deepPurple,
+          height: 200,
+          width: 200,
+            child: Image.asset(
+              "assets/images/Hamza.jpeg",
+              fit: BoxFit.fill,
+            )
         ),
       ),
     );
