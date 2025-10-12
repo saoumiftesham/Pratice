@@ -13,8 +13,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.grey[300] ,
-        appBar: const MyAppBar(), // Now it works
-        body: Body()
+        appBar:  MyAppBar(title:'Nothing'), // Now it works
+        body: Body(),
       ),
     );
   }
