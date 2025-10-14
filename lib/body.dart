@@ -1,34 +1,38 @@
 import 'package:flutter/material.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
   const Body({super.key});
 
   @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  int numberOfTimesTapped = 0;
+  @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      itemCount: 16,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-      ),
-      itemBuilder: (context, index) {
-        return Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text(
+            'Tapped ' + numberOfTimesTapped.toString() + ' times',
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          ),
+          GestureDetector(
+            onTap: (){
+               setState(() {
+                 numberOfTimesTapped++;
+               });
+            },
             child: Container(
-              height: 200,
-              width: 200,
-              color: Colors.deepPurple,
-              child: Center(
-                child: Text(
-                  'Item ${index+1}',
-                  style: TextStyle(fontSize: 20, color: Colors.white70),
-                ),
-              ),
+              color: Colors.green[400],
+              padding: EdgeInsets.all(16),
+              child: Text("Pressed Here", style: TextStyle(fontSize: 20)),
             ),
           ),
-        );
-      },
+        ],
+      ),
     );
   }
 }

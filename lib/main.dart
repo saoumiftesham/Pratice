@@ -1,21 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:practice_new/app_bar.dart';
 import 'package:practice_new/body.dart';
 
 void main() => runApp(const MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.grey[300] ,
-        appBar:  MyAppBar(title:'Nothing'), // Now it works
-        body: Body(),
+        appBar: AppBar(
+            backgroundColor: Colors.greenAccent,
+            title: Text("Nothing"),
+            leading: IconButton(
+              icon: Icon(Icons.account_circle_rounded),
+              onPressed: () {
+                setState(() {});
+              },),
+            actions: [
+            IconButton(
+            icon: Icon(Icons.add),
+        onPressed: (){
+              setState(() {
+              });
+        },
+        ),
+        ],
       ),
-    );
+      body: Body(),
+    ),);
   }
 }
+
