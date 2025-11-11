@@ -8,7 +8,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  int numberOfTimesTapped = 0;
+ static int numberOfTimesTapped = 0;
   @override
   Widget build(BuildContext context) {
     return Center(

@@ -18,6 +18,7 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
             backgroundColor: Colors.greenAccent,
+            foregroundColor: Colors.grey,
             title: Text("Nothing"),
             leading: IconButton(
               icon: Icon(Icons.account_circle_rounded),
