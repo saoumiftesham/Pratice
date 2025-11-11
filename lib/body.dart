@@ -8,7 +8,15 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  //variable
  static int numberOfTimesTapped = 0;
+
+ //method
+ void _increaseNumber(){
+   setState(() {
+     numberOfTimesTapped++;
+   });
+ }
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -20,11 +28,7 @@ class _BodyState extends State<Body> {
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           ),
           GestureDetector(
-            onTap: (){
-               setState(() {
-                 numberOfTimesTapped++;
-               });
-            },
+            onTap: _increaseNumber,
             child: Container(
               color: Colors.green[400],
               padding: EdgeInsets.all(16),
