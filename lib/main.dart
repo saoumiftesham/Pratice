@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:practice_new/body.dart';
+import 'package:practice_new/bottom_bar.dart';
 
 void main() => runApp(const MyApp());
 
@@ -17,26 +18,27 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-            backgroundColor: Colors.greenAccent,
-            foregroundColor: Colors.grey,
-            title: Text("Nothing"),
-            leading: IconButton(
-              icon: Icon(Icons.account_circle_rounded),
+          backgroundColor: Colors.greenAccent,
+          foregroundColor: Colors.grey,
+          title: Text("Nothing"),
+          leading: IconButton(
+            icon: Icon(Icons.account_circle_rounded),
+            onPressed: () {
+              setState(() {});
+            },
+          ),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.add),
               onPressed: () {
                 setState(() {});
-              },),
-            actions: [
-            IconButton(
-            icon: Icon(Icons.add),
-        onPressed: (){
-              setState(() {
-              });
-        },
+              },
+            ),
+          ],
         ),
-        ],
+        body: Body(),
+        bottomNavigationBar: BottomBar(),
       ),
-      body: Body(),
-    ),);
+    );
   }
 }
-
