@@ -12,6 +12,7 @@ class _BottomBarState extends State<BottomBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      //navbar
       currentIndex: _selectedIndex,
       onTap: (index){
         setState(() {
