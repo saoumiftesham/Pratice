@@ -9,16 +9,19 @@ class BottomBar extends StatefulWidget {
 
 class _BottomBarState extends State<BottomBar> {
   int _selectedIndex = 0;
+
+  void _navigationBottomBar(index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       //navbar
       currentIndex: _selectedIndex,
-      onTap: (index){
-        setState(() {
-          _selectedIndex = index;
-        });
-      },
+      onTap: _navigationBottomBar,
       type: BottomNavigationBarType.fixed,
       items: [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
