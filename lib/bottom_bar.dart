@@ -1,29 +1,18 @@
 import 'package:flutter/material.dart';
 
-class BottomBar extends StatefulWidget {
-  const BottomBar({super.key});
+class BottomBar extends StatelessWidget {
+  final int currentIndex;
+  final ValueChanged<int> onTap;
 
-  @override
-  State<BottomBar> createState() => _BottomBarState();
-}
-
-class _BottomBarState extends State<BottomBar> {
-  int _selectedIndex = 0;
-
-  void _navigationBottomBar(index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  const BottomBar({super.key, required this.currentIndex, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      //navbar
-      currentIndex: _selectedIndex,
-      onTap: _navigationBottomBar,
+      currentIndex: currentIndex,
+      onTap: onTap,
       type: BottomNavigationBarType.fixed,
-      items: [
+      items: const [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
         BottomNavigationBarItem(icon: Icon(Icons.message), label: "Message"),
         BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings"),

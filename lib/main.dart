@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:practice_new/body.dart';
 import 'package:practice_new/bottom_bar.dart';
+import 'package:practice_new/pages/account_page.dart';
+import 'package:practice_new/pages/home_page.dart';
+import 'package:practice_new/pages/message_page.dart';
+import 'package:practice_new/pages/settings_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -12,6 +15,16 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  int _selectedIndex = 0;
+
+  void _navigationBottomBar(index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  final List<Widget> _pages = [UserHome(), UserAccount(),UserMessage(),UserSettings()];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -36,8 +49,11 @@ class _MyAppState extends State<MyApp> {
             ),
           ],
         ),
-        body: Body(),
-        bottomNavigationBar: BottomBar(),
+        body: _pages[_selectedIndex],
+        bottomNavigationBar: BottomBar(
+          currentIndex: _selectedIndex,
+          onTap: _navigationBottomBar,
+        ),
       ),
     );
   }
