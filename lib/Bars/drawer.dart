@@ -12,23 +12,27 @@ class drawerBox extends StatelessWidget {
         color: Colors.deepPurpleAccent,
         child: ListView(
           children: [
-            DrawerHeader(child: Icon(Icons.lock_open, size: 50)),
+            const DrawerHeader(child: Icon(Icons.lock_open, size: 50)),
             ListTile(
               leading: Icon(Icons.home),
               title: Text("Page-1", style: TextStyle(fontSize: 20)),
               onTap: () {
-                Navigator.of(
+                Navigator.pop(context);
+                Navigator.push(
                   context,
-                ).push(MaterialPageRoute(builder: (context) => FirstPage()));
+                    MaterialPageRoute(builder: (context) => FirstPage()),
+                );
               },
             ),
             ListTile(
               leading: Icon(Icons.home),
               title: Text("Page-2", style: TextStyle(fontSize: 20)),
               onTap: () {
-                Navigator.of(
+                Navigator.pop(context);
+                Navigator.push(
                   context,
-                ).push(MaterialPageRoute(builder: (context) => SecondPage()));
+                    MaterialPageRoute(builder: (context) => SecondPage())
+                );
               },
             ),
           ],
